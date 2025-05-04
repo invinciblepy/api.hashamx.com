@@ -7,7 +7,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "https://app.hashamx.com"]}})
+CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "https://api.hashamx.com"]}})
 
 # Store task results in memory
 results = {}
