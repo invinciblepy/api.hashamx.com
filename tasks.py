@@ -5,7 +5,7 @@ import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-@celery.task(bind=True)
+@celery.task(name="tasks.run_scraper_task", bind=True)
 def run_scraper_task(self, scraper_name, data):
     try:
         module = importlib.import_module(f"modules.{scraper_name}.scraper")
