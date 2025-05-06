@@ -2,8 +2,8 @@ import importlib
 from celery_app import celery
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 @celery.task(bind=True)
 def run_scraper_task(self, scraper_name, data):

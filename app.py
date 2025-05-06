@@ -1,17 +1,13 @@
 import os
 import json
-import uuid
-from celery.result import AsyncResult
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from celery.result import AsyncResult
 from tasks import run_scraper_task
 from celery_app import celery
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "https://dev.hashamx.com"]}})
-
-# Store task results in memory
-results = {}
 
 @app.route("/api/scrapers")
 def list_scrapers():
@@ -22,7 +18,6 @@ def list_scrapers():
     ]
     return jsonify(scrapers)
 
-# Load scraper config (hashamx.json)
 @app.route("/api/scraper/<scraperName>")
 def get_scraper(scraperName):
     try:
@@ -38,20 +33,14 @@ def get_scraper(scraperName):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-# Start scraper in background
 @app.route("/api/run-scraper", methods=["POST"])
 def run_scraper():
     req = request.get_json()
     scraper_name = req.get("scraper")
     data = req.get("data", {})
-
-    task_id = str(uuid.uuid4())
-    results[task_id] = {"status": "running"}
     task = run_scraper_task.apply_async(args=[scraper_name, data])
     return jsonify({"task_id": task.id})
 
-# Poll task status
 @app.route("/api/status/<task_id>")
 def check_status(task_id):
     task_result = AsyncResult(task_id, app=celery)
@@ -62,10 +51,6 @@ def check_status(task_id):
     elif task_result.state == "SUCCESS":
         return jsonify({"status": "done", "data": task_result.result})
     return jsonify({"status": task_result.state})
-
-@app.route("/api/results/debug")
-def debug_results():
-    return jsonify(results)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
