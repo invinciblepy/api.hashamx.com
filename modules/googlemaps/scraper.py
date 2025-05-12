@@ -10,7 +10,7 @@ class googlemaps:
     def __init__(self, url: str):
         self.url = url
         if "google.com/maps/" not in url:
-            return None, []
+            return 0, []
 
         self.session = requests.Session()
         self.session.headers.update({
