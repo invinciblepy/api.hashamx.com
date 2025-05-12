@@ -1,0 +1,18 @@
+{
+    "name": "Google Maps Scraper",
+    "description": "This scraper extracts business listings, contact info, and category data from Google Maps. Ideal for B2B lead generation, sales outreach, and local SEO automation. Explore structured data from millions of verified businesses in real-time.",
+    "premium": true,
+    "type": "scraper",
+    "input": {
+      "fields": [
+        {
+          "label": "Google Maps URL",
+          "name": "url",
+          "type": "text",
+          "placeholder": "Enter Google Maps URL to scrape"
+        }
+      ],
+      "header": ["name", "address", "attributes", "place_id", "rating", "reviews_count", "phone", "url"]
+    }
+  }
+  
