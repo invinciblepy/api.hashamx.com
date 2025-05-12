@@ -36,8 +36,9 @@ class googlemaps:
         pattern = r'window\.APP_INITIALIZATION_STATE\s*=\s*\[(.*?)\];'
         match = re.search(pattern, response.text)
         if not match:
+            print(response.status_code)
             print("No Items found")
-            return
+            return 0,[]
             
         state_str = match.group(1)
         state = json.loads(f"[{state_str}]")
