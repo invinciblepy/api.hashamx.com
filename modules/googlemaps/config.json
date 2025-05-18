@@ -13,6 +13,8 @@
       ],
     "outputs": ["name", "address", "attributes", "place_id", "rating", "reviews_count", "phone", "url"],
     "repository": "https://github.com/invinciblepy/google-maps-scraper",
-    "is_active": true
+    "is_active": true,
+    "max_results": 10,
+    "backend": "googlemaps"
   }
   

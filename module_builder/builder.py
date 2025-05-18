@@ -28,7 +28,7 @@ def organize_module_data(data):
     inputs = data.get("inputs", "")
     outputs = data.get("outputs", "")
     repository = data.get("repository", "")
-    backend = name
+    backend = data.get("backend", "")
     is_active = data.get("is_active", True)
     max_results = data.get("max_results", 10)
     return name, description, premium, type_, inputs, outputs, repository, backend, is_active, max_results

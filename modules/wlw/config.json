@@ -13,6 +13,8 @@
       ],
     "outputs": ["name", "street", "city", "zip_code", "country", "supplier_types", "phone_number", "homepage", "slug", "description", "employee_count", "product_count", "distribution_area", "founding_year", "average_response_time"],
     "repository": "https://github.com/invinciblepy/wlw-b2b-scraper",
-    "is_active": true
+    "is_active": true,
+    "max_results": 10,
+    "backend": "wlw"
 }
   

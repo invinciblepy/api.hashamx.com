@@ -19,6 +19,8 @@
       ],
     "outputs": ["name", "category", "rating", "telephone", "fax", "website", "email", "address"],
     "repository": "https://github.com/invinciblepy/gelbeseiten-scraper",
-    "is_active": true
+    "is_active": true,
+    "max_results": 10,
+    "backend": "gelbeseiten"
   }
   

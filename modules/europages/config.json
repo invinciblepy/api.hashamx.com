@@ -13,7 +13,9 @@
       ],
     "outputs": ["name", "phone", "website", "street", "country", "zipcode", "city", "acronym", "description", "distribution_area", "average_response_time", "founding_year", "employee_count"],
     "repository": "https://github.com/invinciblepy/europages-b2b-scraper",
-    "is_active": true
+    "is_active": true,
+    "max_results": 10,
+    "backend": "europages"
 
   }
   
