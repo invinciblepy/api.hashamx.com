@@ -1,10 +1,9 @@
 {
-    "name": "Europages Scraper",
+    "name": "Europages B2B Scraper",
     "description": "This scraper extracts business listings, contact info, and category data from Europages.de...Europe's leading online directory. Ideal for B2B lead generation, sales outreach, and local SEO automation. Explore structured data from millions of verified European businesses in real-time.",
     "premium": false,
     "type": "scraper",
-    "input": {
-      "fields": [
+    "inputs": [
         {
           "label": "Search Keyword",
           "name": "keyword",
@@ -12,7 +11,9 @@
           "placeholder": "Enter keyword to scrape"
         }
       ],
-      "header": ["name", "phone", "website", "street", "country", "zipcode", "city", "acronym", "description", "distribution_area", "average_response_time", "founding_year", "employee_count"]
-    }
+    "outputs": ["name", "phone", "website", "street", "country", "zipcode", "city", "acronym", "description", "distribution_area", "average_response_time", "founding_year", "employee_count"],
+    "repository": "https://github.com/invinciblepy/europages-b2b-scraper",
+    "is_active": true
+
   }
   

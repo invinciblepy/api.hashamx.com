@@ -31,6 +31,8 @@ class googlemaps:
         })
         self.locations = []
 
+    def handle_consent_page(self):
+    
     def scrape(self):
         response = self.session.get(self.url)
         pattern = r'window\.APP_INITIALIZATION_STATE\s*=\s*\[(.*?)\];'

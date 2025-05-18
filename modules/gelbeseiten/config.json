@@ -3,8 +3,7 @@
     "description": "This scraper extracts business listings, contact info, and category data from GelbeSeiten.de...Germany's leading online directory. Ideal for B2B lead generation, sales outreach, and local SEO automation. Explore structured data from millions of verified German businesses in real-time.",
     "premium": false,
     "type": "scraper",
-    "input": {
-      "fields": [
+    "inputs": [
         {
           "label": "Search Keyword",
           "name": "keyword",
@@ -18,7 +17,8 @@
           "placeholder": "Enter location to scrape"
         }
       ],
-      "header": ["name", "category", "rating", "telephone", "fax", "website", "email", "address"]
-    }
+    "outputs": ["name", "category", "rating", "telephone", "fax", "website", "email", "address"],
+    "repository": "https://github.com/invinciblepy/gelbeseiten-scraper",
+    "is_active": true
   }
   

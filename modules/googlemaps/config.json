@@ -3,8 +3,7 @@
     "description": "This scraper extracts business listings, contact info, and category data from Google Maps. Ideal for B2B lead generation, sales outreach, and local SEO automation. Explore structured data from millions of verified businesses in real-time.",
     "premium": true,
     "type": "scraper",
-    "input": {
-      "fields": [
+    "inputs":[
         {
           "label": "Google Maps URL",
           "name": "url",
@@ -12,7 +11,8 @@
           "placeholder": "Enter Google Maps URL to scrape"
         }
       ],
-      "header": ["name", "address", "attributes", "place_id", "rating", "reviews_count", "phone", "url"]
-    }
+    "outputs": ["name", "address", "attributes", "place_id", "rating", "reviews_count", "phone", "url"],
+    "repository": "https://github.com/invinciblepy/google-maps-scraper",
+    "is_active": true
   }
   

@@ -1,10 +1,9 @@
 {
-    "name": "WLW Scraper",
+    "name": "WLW B2B Scraper",
     "description": "This scraper collects supplier profiles, product categories, and company contact details from wlw.de... Europe's leading B2B sourcing platform. Use it to discover manufacturers, wholesalers, and service providers across industries. Ideal for procurement automation, supplier research, and sales prospecting in the DACH region and beyond.",
     "premium": false,
     "type": "scraper",
-    "input": {
-      "fields": [
+    "inputs":[
         {
           "label": "URL",
           "name": "url",
@@ -12,7 +11,8 @@
           "placeholder": "Enter URL to scrape"
         }
       ],
-      "header": ["name", "street", "city", "zip_code", "country", "supplier_types", "phone_number", "homepage", "slug", "description", "employee_count", "product_count", "distribution_area", "founding_year", "average_response_time"]
-    }
+    "outputs": ["name", "street", "city", "zip_code", "country", "supplier_types", "phone_number", "homepage", "slug", "description", "employee_count", "product_count", "distribution_area", "founding_year", "average_response_time"],
+    "repository": "https://github.com/invinciblepy/wlw-b2b-scraper",
+    "is_active": true
 }
   

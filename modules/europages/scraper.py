@@ -3,7 +3,6 @@ import random
 from user_agent import generate_user_agent
 from ..wlw.wrapper import fetch_url
 
-
 class europages:
     def __init__(self, keyword):
         self.base_url = 'https://www.europages.co.uk/search-frontend/alibaba-api/online.company.search'
@@ -46,7 +45,7 @@ class europages:
         response = fetch_url(self.base_url, params=params, headers=self.headers)
         code = response.get('code')
         if code != 200:
-            print("[X] Error: {}".format(code))
+            print(f"[X] Error: {code}")
             return 
         data = response.get('data')
         self.total_companies = data.get('paging').get('total')

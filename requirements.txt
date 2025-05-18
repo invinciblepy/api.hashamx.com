@@ -1,4 +1,10 @@
-Flask
-flask-cors
+django
+django-rest-framework
+django-cors-headers
+requests
+lxml
+bs4
 celery
 redis
+sqlalchemy
+psycopg2-binary
