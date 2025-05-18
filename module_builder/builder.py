@@ -71,6 +71,7 @@ def build_module(module_name):
                 """),
                 params
             )
+            print(f"Module '{backend}' created successfully.")
         else:
             conn.execute(
                 text("""
@@ -82,8 +83,9 @@ def build_module(module_name):
                 """),
                 params
             )
+            print(f"Module '{backend}' updated successfully.")
         conn.commit()
-        print(f"Module '{name}' built successfully.")
+        print("[INFO] Commited successfully.")
 
 
 if __name__ == "__main__":
