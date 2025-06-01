@@ -30,7 +30,7 @@ class googlemaps:
         })
         self.locations = []
 
-    def consent_page(self):
+    def consent_page(self, response):
         tree = html.fromstring(response.text)
         form = tree.xpath("//form")[0]
         action = form.get("action")
@@ -43,7 +43,7 @@ class googlemaps:
     def scrape(self):
         response = self.session.get(self.url)
         if "consent.google" in response.url:
-            response = self.consent_page()
+            response = self.consent_page(response)
         pattern = r'window\.APP_INITIALIZATION_STATE\s*=\s*\[(.*?)\];'
         match = re.search(pattern, response.text)
         if not match:
