@@ -67,8 +67,16 @@ class googlemaps:
             "address": event[18] or event[39],
             "attributes": ', '.join(attr[0] for attr in event[76]),
             "place_id": event[89],
-            "rating": event[4][7],
-            "reviews_count": event[4][8],
-            "phone": event[178][0][0] if isinstance(event[178], list) else None,
-            "url": event[7][0] if isinstance(event[7], list) else None
+            "rating": self.safe_get(event, 4, 7),
+            "reviews_count": self.safe_get(event, 4, 8),
+            "phone": self.safe_get(event, 178, 0, 0) if isinstance(event[178], list) else None,
+            "url": self.safe_get(event, 7, 0) if isinstance(event[7], list) else None
         }
+
+    def safe_get(self, event, *indexes):
+        for index in indexes:
+            if isinstance(event, list) and index < len(event):
+                event = event[index]
+            else:
+                return None
+        return event
