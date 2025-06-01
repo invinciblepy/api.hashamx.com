@@ -1,8 +1,7 @@
 import json
 import re
 import requests
-import csv
-import os
+from lxml import html
 
 
 
@@ -31,10 +30,20 @@ class googlemaps:
         })
         self.locations = []
 
-    def handle_consent_page(self):
+    def consent_page(self):
+        tree = html.fromstring(response.text)
+        form = tree.xpath("//form")[0]
+        action = form.get("action")
+        method = form.get("method")
+        inputs = form.xpath(".//input")
+        data = {input.get("name"): input.get("value") for input in inputs}
+        response = self.session.request(method, action, data=data)
+        return response
     
     def scrape(self):
         response = self.session.get(self.url)
+        if "consent.google" in response.url:
+            response = self.consent_page()
         pattern = r'window\.APP_INITIALIZATION_STATE\s*=\s*\[(.*?)\];'
         match = re.search(pattern, response.text)
         if not match:
